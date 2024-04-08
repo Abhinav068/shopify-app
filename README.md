@@ -1,1 +1,1 @@
-# shopify-app
+# shopify
