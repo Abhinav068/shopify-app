@@ -1,5 +1,6 @@
 const express = require('express');
 const Shopify = require('shopify-api-node');
+const { getAddress } = require('./src/address');
 
 const app = express();
 require('dotenv').config();
@@ -15,22 +16,19 @@ app.get('/shopify', (req, res) => {
     res.sendFile(__dirname + '/view/test.html')
 })
 
-app.get('/app/api/addresses/:phone_number', (req, res) => {
+app.get('/app/api/addresses/:phone_number', async (req, res) => {
     // Retrieve the list of saved addresses for the Shopify customer associated with the provided phone number.
 
-    const phone_number = req.params.phone_number
-    shopify.customer
-        .list({ limit: 5 })
-        .then((orders) => {
-            console.log('Adresses:')
-            orders.forEach(e => {
-                console.log(e.addresses);
-            })
+    try {
+        const phone_number = req.params.phone_number
+        let data = await shopify.customer.list({ limit: 5 });
+        res.send(getAddress(data, phone_number));
 
-        })
-        .catch((err) => console.error(err));
+    } catch (error) {
 
-    res.sendFile(__dirname + '/view/test.html')
+    }
+
+
 })
 
 
@@ -69,16 +67,6 @@ app.get('/app/api/order/cancel/:order_number', (req, res) => {
 
 
 })
-// const shopify = new Shopify({
-//   shopName: 'quickstart-41544d68',
-//   apiKey: 'ee19cd5d6aff73b8ded60349519f2bf0',
-//   password: '133748a1a291f5f249d7ea692f6c074a',
-// });
-// shopify.on('callLimits', (limits) => console.log(limits));
-
-
-
-
 
 
 app.listen(PORT, () => {
