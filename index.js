@@ -25,7 +25,7 @@ app.get('/app/api/addresses/:phone_number', async (req, res) => {
         res.send(getAddress(data, phone_number));
 
     } catch (error) {
-
+        res.send({error})
     }
 
 
