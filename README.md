@@ -7,13 +7,16 @@ Shopify is an api to provide customer data and orders. It can be used to render 
 Backend
 
 ## Deplolyed App
-Backend: https://deployed-site.whatever
+Backend: https://shopify-app-1.onrender.com/
 
 ## Directory Structure
-my-app/
-├─ backend/
-├─ frontend/
-│  ├─ ...
+shopify-app/
+├─ src/
+    ├─ address.js
+├─ view/
+    ├─ test.html
+├─ index.js
+├─ package.json
 
 ## Video Walkthrough of the project
 Attach a very short video walkthough of all of the features [ 1 - 3 minutes ]
@@ -22,8 +25,6 @@ Attach a very short video walkthough of all of the features [ 1 - 3 minutes ]
 Attach a very short video walkthough of codebase [ 1 - 5 minutes ]
 
 ## Features
-List out the key features of your application.
-
 - Feature 1
 - Feature 2
 - Feature 3
@@ -35,9 +36,9 @@ List your design desissions & assumptions
 Detailed instructions on how to install, configure, and get the project running. For BE/FS projects, guide the reviewer how to check mongodb schema etc.
 
 ```bash
-npm install my-project
-cd my-project
-npm start
+npm install shopify-app
+cd shopify-app
+node index.js
 ```
 
 ## Usage
