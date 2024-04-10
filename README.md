@@ -18,48 +18,29 @@ shopify-app/
 ├─ index.js
 ├─ package.json
 
-## Video Walkthrough of the project
-Attach a very short video walkthough of all of the features [ 1 - 3 minutes ]
-
-## Video Walkthrough of the codebase
-Attach a very short video walkthough of codebase [ 1 - 5 minutes ]
-
-## Features
-- Feature 1
-- Feature 2
-- Feature 3
-
-## design decisions or assumptions
-List your design desissions & assumptions
 
 ## Installation & Getting started
-Detailed instructions on how to install, configure, and get the project running. For BE/FS projects, guide the reviewer how to check mongodb schema etc.
-
 ```bash
 npm install shopify-app
 cd shopify-app
 node index.js
 ```
 
-## Usage
-Provide instructions and examples on how to use your project.
-
-```bash
-# Example
-```
-
-Include screenshots as necessary.
-
-## Credentials
-Provide user credentials for autheticated pages
-
-## APIs Used
-If your application relies on external APIs, document them and include any necessary links or references.
-
 ## API Endpoints
-In case of Backend Applications provide a list of your API endpoints, methods, brief descriptions, and examples of request/response.
-GET /api/items - retrieve all items
-POST /api/items - create a new item
+GET /api/addresses/:phone_number - retrieve all addresses linked to a phone_number
+`Example: https://shopify-app-1.onrender.com/app/api/addresses/6135550135 `
+
+PUT /api/address/update/:address_id/:address_data - update the address using an address id
+`Example:  https://shopify-app-1.onrender.com/appaddress/update/6764727369857/Nauka_Vihar_Gorakhpur`
+
+GET /app/api/orders/:phone_number - Retrieve the list of orders associated with the Shopify customer identified by the provided phone number
+`Example: https://shopify-app-1.onrender.com/app/api/orders/6135550135`
+
+Get /app/api/order/:order_number - Fetch the order status and details of the products for the specified order.
+`Example: https://shopify-app-1.onrender.com/app/api/order/1002`
+
+Get /app/api/order/cancel/:order_number - Cancel the specified order and confirm the successful cancellation. 
+`Example: https://shopify-app-1.onrender.com/app/api/order/cancel/1002`
 
 
 ## Technology Stack
