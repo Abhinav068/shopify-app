@@ -85,7 +85,7 @@ app.get('/app/api/order/:order_number', async (req, res) => {
 
 
 })
-app.get('/app/api/order/cancel/:order_number', async (req, res) => {
+app.post('/app/api/order/cancel/:order_number', async (req, res) => {
     //Cancel the specified order and confirm the successful cancellation.
 
     try {
